@@ -1,4 +1,5 @@
 {
     "mongoURI": "mongodb+srv://isha123:isha123@devconnector.5yis5.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken"
+    "jwtSecret": "mysecrettoken",
+    "githubToken":"98c3b62fb55afba7c685aa7c36ff61ab93d27751"
 }
