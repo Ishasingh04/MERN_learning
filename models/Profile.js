@@ -16,11 +16,11 @@ const ProfileSchema = new mongoose.Schema({
     },
     status:{
         type: String,
-        required: true
+        required: [true, 'Status is required!'],
     },
     skills:{
         type: [String],
-        required: true
+        required: required: [true, 'Skills are required!'],
     },
     bio:{
         type: String
@@ -32,18 +32,18 @@ const ProfileSchema = new mongoose.Schema({
         {
             title: {
                 type: String,
-                required: true
+                required: required: [true, 'Title is required'],
             },
             company:{
                 type:String,
-                required: true
+                required: required: [true, 'Company name is required'],
             },
             location:{
                 type:String
             },
             from:{
                 type: Date,
-                required: true
+                required: required: [true, 'From field is required'],
             },
             to:{
                 type: Date
@@ -61,11 +61,11 @@ const ProfileSchema = new mongoose.Schema({
         {
             school: {
                 type: String,
-                required: true
+                required: required: [true, 'School field is required'],
             },
             degree:{
                 type: String,
-                required: true
+                required: required: [true, 'Degree field is required'],
             },
             current: {
                 typr: Boolean,
