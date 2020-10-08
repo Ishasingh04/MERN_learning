@@ -34,7 +34,7 @@ export default function( state = initialState, action){
                 ...payload,
                 isAuthenticated: true,
                 loading: false
-            }
+            };
         case REGISTER_FAIL:
         case LOGIN_FAIL:
         case AUTH_ERROR:
@@ -45,7 +45,7 @@ export default function( state = initialState, action){
                 token: null,
                 isAuthenticated: false,
                 loading: false
-            }
+            };
         default:
             return state;
     }
