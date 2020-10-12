@@ -1,11 +1,11 @@
 import React,{ Fragment, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from'react-redux';
 import { createProfile } from '../../actions/profile';
 
 const CreateProfile = ({createProfile, history}) => {
-    const [fromData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         company: '',
         website: '',
         location: '',
@@ -35,12 +35,12 @@ const CreateProfile = ({createProfile, history}) => {
         likedin,
         youtube,
         instagram
-    } = fromData;
+    } = formData;
 
-    const onChange = e => setFormData({...FormData, [e.target.name]: e.target.value});
+    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
     const onSubmit = e => {
       e.preventDefault();
-      createProfile(FormData, history);
+      createProfile(formData, history);
     }
     
     return (
@@ -119,8 +119,10 @@ const CreateProfile = ({createProfile, history}) => {
           </button>
           <span>Optional</span>
         </div>
-                {displaySocialInputs && <Fragment>
-                    <div className="form-group social-input">
+    {
+     displaySocialInputs && 
+       <Fragment>
+        <div className="form-group social-input">
           <i className="fab fa-twitter fa-2x"></i>
           <input type="text" placeholder="Twitter URL" name="twitter"  value={twitter} onChange={e => onChange(e)}/>
         </div>
@@ -145,7 +147,8 @@ const CreateProfile = ({createProfile, history}) => {
           <input type="text" placeholder="Instagram URL" name="instagram"  value={instagram} onChange={e => onChange(e)}/>
         </div>
 
-     </Fragment>}
+     </Fragment>
+   }
 
         <input type="submit" className="btn btn-primary my-1" />
         <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
