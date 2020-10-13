@@ -13,11 +13,11 @@ const Dashboard = ({
     }) => {
     useEffect(() => {
         getCurrentProfile();
-    });
+    }, []);
 
-    return loading && profile ===null ? (
+    return loading && profile === null ? (
     <Spinner />
-    ):( 
+    ) : ( 
     <Fragment>
         <h1 className="large text-primary">Dashboard</h1>
         <p className="lead">

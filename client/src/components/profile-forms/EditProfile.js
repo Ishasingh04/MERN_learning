@@ -8,8 +8,8 @@ import { createProfile, getCurrentProfile } from '../../actions/profile';
 const EditProfile = ({
     profile: { profile, loading },
     createProfile,
-     getCurrentProfile,
-     history
+    getCurrentProfile,
+    history
 }) => {
     const [formData, setFormData] = useState({
         company: '',
@@ -36,7 +36,7 @@ const EditProfile = ({
         website: loading || !profile.website ? '' : profile.website,
         location: loading || !profile.location ? '' : profile.location,
         status: loading || !profile.status ? '' : profile.status,
-        skills: loading || !profile.skills ? '' : profile.skills,
+        skills: loading || !profile.skills ? '' : profile.skills.join(','),
         githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
         bio: loading || !profile.bio ? '' : profile.bio,
         twitter: loading || !profile.social ? '' : profile.twitter,
@@ -186,8 +186,8 @@ const EditProfile = ({
 
 EditProfile.propTypes = {
  createProfile: PropTypes.func.isRequired,
- profile: PropTypes.object.isRequired,
- getCurrentProfile: PropTypes.object.isRequired
+ getCurrentProfile: PropTypes.func.isRequired,
+ profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -195,4 +195,7 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(EditProfile));
+export default connect(
+  mapStateToProps,
+   { createProfile, getCurrentProfile }
+   )(withRouter(EditProfile));
