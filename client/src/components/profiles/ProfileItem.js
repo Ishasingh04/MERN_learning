@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'ract-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ProfileItems = ({ profile:{
+const ProfileItem = ({ profile:{
     user: { _id, name, avatar},
-    statys,
-    comapny,
+    status,
+    company,
     location,
     skills
 }
@@ -14,7 +14,7 @@ const ProfileItems = ({ profile:{
         <img src={avatar} alt ="" className="round-img" />
         <div>
         <h2>{name}</h2>
-    <p>{status} {comapny && <span> at {comapny} </span>}</p>
+    <p>{status} {company && <span> at {company} </span>}</p>
     <p className="my-1"> {location && <span>{location}</span>} </p>
     <Link to ={`/profile/${_id}`} className='btn btn-primary'>
     View Profile 
@@ -31,7 +31,7 @@ const ProfileItems = ({ profile:{
  </div>;
 };
 
-ProfileItems.propTypes = {
+ProfileItem.propTypes = {
         profile: PropTypes.object.isRequired
     };
 export default ProfileItem;
